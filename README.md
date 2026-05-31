@@ -2,6 +2,17 @@
 
 Smart Appointment & Queue Management Platform built using Flask and SQLite.
 
+## Problem Statement
+
+People waste time waiting in queues without visibility.
+
+QueueEase helps users:
+
+- book appointments
+- track queue position
+- estimate waiting time
+- manage bookings efficiently
+
 ## Features
 
 - User Authentication
@@ -82,17 +93,6 @@ Open:
 ```text
 http://127.0.0.1:5000
 ```
-
-## Problem Statement
-
-People waste time waiting in queues without visibility.
-
-QueueEase helps users:
-
-- book appointments
-- track queue position
-- estimate waiting time
-- manage bookings efficiently
 
 ## Future Improvements
 
