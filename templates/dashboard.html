@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Dashboard • QueueEase Pro</title>
+<link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
+<body>
+
+<div class="layout">
+
+<aside class="sidebar">
+
+<div>
+
+<div class="logo">
+<h2>QueueEase</h2>
+<p>Smart Queue Platform</p>
+</div>
+
+<nav>
+<a class="active-nav" href="/dashboard">Dashboard</a>
+<a href="#booking">Book Slot</a>
+<a href="#history">History</a>
+</nav>
+
+</div>
+
+<a class="logout-btn" href="/logout">
+Logout
+</a>
+
+</aside>
+
+<main class="main">
+
+<div class="hero">
+
+<div>
+<h1>
+Welcome back, {{ user.username }}
+</h1>
+
+<p>
+Manage appointments seamlessly and track queue activity.
+</p>
+</div>
+
+<div class="load-pill {{ load.lower() }}">
+{{ load }} Queue
+</div>
+
+</div>
+
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category,message in messages %}
+<div class="alert {{ category }}">
+{{ message }}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<span>Total</span>
+<h2>{{ total }}</h2>
+<p>Appointments</p>
+</div>
+
+<div class="stat-card">
+<span>Active</span>
+<h2>{{ active }}</h2>
+<p>Bookings</p>
+</div>
+
+<div class="stat-card">
+<span>Cancelled</span>
+<h2>{{ cancelled }}</h2>
+<p>Requests</p>
+</div>
+
+<div class="stat-card glow-card">
+<span>Status</span>
+<h2>{{ load }}</h2>
+<p>Today's Load</p>
+</div>
+
+</div>
+
+<section id="booking" class="glass-card">
+
+<div class="section-head">
+<h2>Book Appointment</h2>
+<p>Choose service and reserve your slot.</p>
+</div>
+
+<form method="POST" class="booking-form">
+
+<select name="service" required>
+<option value="">Choose Service</option>
+<option>General Consultation</option>
+<option>Salon Appointment</option>
+<option>Technical Support</option>
+<option>Document Verification</option>
+</select>
+
+<input
+type="date"
+name="date"
+required>
+
+<button type="submit">
+Reserve Slot
+</button>
+
+</form>
+
+</section>
+
+<section id="history">
+
+<div class="section-head">
+<h2>Booking History</h2>
+<p>Your latest appointments and queue details.</p>
+</div>
+
+<div class="card-grid">
+
+{% for a in appointments %}
+
+<div class="appointment-card">
+
+<div class="appointment-top">
+
+<div>
+<h3>{{ a.service }}</h3>
+<p>{{ a.date }}</p>
+</div>
+
+<div class="token-box">
+#{{ a.token }}
+</div>
+
+</div>
+
+<div class="queue-meta">
+
+<div>
+<span>Status</span>
+<strong class="{{ a.status.lower() }}">
+{{ a.status }}
+</strong>
+</div>
+
+<div>
+<span>Position</span>
+<strong>
+{{ a.position }}
+</strong>
+</div>
+
+<div>
+<span>Wait</span>
+<strong>
+{{ a.wait }} min
+</strong>
+</div>
+
+</div>
+
+{% if a.status=="Booked" %}
+<div class="appointment-actions">
+<a href="/cancel/{{ a.id }}">
+Cancel Appointment
+</a>
+</div>
+{% endif %}
+
+</div>
+
+{% else %}
+
+<div class="empty-state">
+
+<h3>
+No bookings yet
+</h3>
+
+<p>
+Start by creating your first appointment.
+</p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+</body>
+</html>
