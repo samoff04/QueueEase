@@ -1,4 +1,4 @@
-# QueueEase Pro
+# QueueEase
 
 Smart Appointment & Queue Management Platform built using Flask and SQLite.
 
@@ -47,7 +47,7 @@ Frontend:
 ## Project Structure
 
 ```text
-QueueEase-Pro/
+QueueEase/
 │
 ├── app.py
 ├── requirements.txt
@@ -67,13 +67,13 @@ QueueEase-Pro/
 Clone:
 
 ```bash
-git clone https://github.com/samoff04/QueueEase-Pro.git
+git clone https://github.com/samoff04/QueueEase.git
 ```
 
 Move into folder:
 
 ```bash
-cd QueueEase-Pro
+cd QueueEase
 ```
 
 Install dependencies:
