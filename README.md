@@ -26,7 +26,7 @@ QueueEase helps users:
 - Premium SaaS UI
 - Responsive Dashboard
 
-## Project Overview
+## Overview
 
 ![alt text](images/image.png)
 ![alt text](images/image-1.png)
