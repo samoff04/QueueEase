@@ -26,6 +26,11 @@ QueueEase helps users:
 - Premium SaaS UI
 - Responsive Dashboard
 
+## Project Overview
+
+![alt text](images/image.png)
+![alt text](images/image-1.png)
+
 ## Tech Stack
 
 Backend:
@@ -38,11 +43,6 @@ Frontend:
 - HTML
 - CSS
 - Jinja
-
-## Project Overview
-
-![alt text](image.png)
-![alt text](image-1.png)
 
 ## Project Structure
 
@@ -58,6 +58,7 @@ QueueEase/
 │   ├── login.html
 │   └── dashboard.html
 │
+├── images/
 └── static/
     └── style.css
 ```
@@ -100,6 +101,8 @@ http://127.0.0.1:5000
 - Notifications
 - Email Alerts
 - AI Queue Prediction
-- Cloud Deployment
 - Delete Account
-- Forgot Password
+
+## Author
+
+Samarth Varshney
